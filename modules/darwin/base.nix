@@ -4,7 +4,7 @@
   system.primaryUser = "savely";
 
   networking = {
-    hostName = "savely-macbook";
+    hostName = "savely-macbook.local";
     computerName = "MacBook Pro — Savely";
     localHostName = "savely-macbook";
   };

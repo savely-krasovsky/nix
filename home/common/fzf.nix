@@ -1,9 +1,8 @@
 { ... }:
 
 {
-  programs.starship = {
+  programs.fzf = {
     enable = true;
     enableZshIntegration = true;
-    enableNushellIntegration = true;
   };
 }
