@@ -15,6 +15,8 @@
     go
     nodejs_24
     pnpm
+    kubectl
+    k9s
     codex
   ];
 }
