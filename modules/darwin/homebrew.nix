@@ -21,6 +21,7 @@
       "bitwarden"
       "brave-origin"
       "codex-app"
+      "element"
       "fastmail"
       "ghostty"
       "jetbrains-toolbox"
