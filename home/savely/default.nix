@@ -18,5 +18,16 @@
 
   home.stateVersion = "26.05";
 
+  xdg.configFile."nano/nanorc".text = ''
+    set autoindent
+    set linenumbers
+    set minibar
+    set mouse
+    set tabsize 4
+
+    include "${pkgs.nano}/share/nano/*.nanorc"
+    include "${pkgs.nano}/share/nano/extra/*.nanorc"
+  '';
+
   programs.home-manager.enable = true;
 }

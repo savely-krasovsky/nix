@@ -2,22 +2,23 @@
 
 {
   home.packages = with pkgs; [
-    git
-    jq
-    ripgrep
-    fd
-    tree
     bat
     eza
+    fd
     fzf
+    git
+    jq
+    nano
+    ripgrep
     starship
+    tree
     zsh-completions
 
+    codex
     go
+    k9s
+    kubectl
     nodejs_24
     pnpm
-    kubectl
-    k9s
-    codex
   ];
 }
