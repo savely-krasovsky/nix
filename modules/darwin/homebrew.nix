@@ -37,6 +37,7 @@
       "spotify"
       "telegram-desktop"
       "todoist-app"
+      "virtualbuddy"
     ];
 
     goPackages = [
