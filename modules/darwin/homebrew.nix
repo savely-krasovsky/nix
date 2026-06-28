@@ -25,6 +25,7 @@
       "telegram-desktop"
       "todoist-app"
       "fastmail"
+      "codex-app"
     ];
   };
 }
