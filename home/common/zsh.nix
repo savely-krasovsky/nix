@@ -10,6 +10,9 @@
     initContent = ''
       zmodload zsh/complist
       zstyle ':completion:*' menu select
+
+      bindkey "''${terminfo[kdch1]}" delete-char
+      bindkey "^[[3~" delete-char
     '';
 
     shellAliases = {
