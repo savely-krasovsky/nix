@@ -4,6 +4,7 @@
   programs.zsh = {
     enable = true;
 
+    enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -16,9 +17,10 @@
     '';
 
     shellAliases = {
-      ll = "ls -la";
-      gs = "git status";
-      gd = "git diff";
+      ls  = "eza --icons=always";
+      ll  = "eza -l --icons=always";
+      la  = "eza -la --icons=always";
+      cat = "bat --plain";
       grep = "grep --color=auto";
     };
   };

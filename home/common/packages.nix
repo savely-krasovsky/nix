@@ -11,6 +11,7 @@
     eza
     fzf
     starship
+    zsh-completions
 
     go
     nodejs_24
