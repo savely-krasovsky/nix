@@ -3,8 +3,10 @@
 {
   imports = [
     ../common/zsh.nix
-    ../common/starship.nix
     ../common/git.nix
+    ../common/ssh.nix
+    ../common/fzf.nix
+    ../common/starship.nix
     ../common/packages.nix
   ];
 

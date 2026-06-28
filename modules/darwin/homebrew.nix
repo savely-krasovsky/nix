@@ -8,11 +8,12 @@
 
   homebrew = {
     enable = true;
+    enableZshIntegration = true;
 
     onActivation = {
-      cleanup = "uninstall";
-      autoUpdate = true;
-      upgrade = true;
+      cleanup = "zap";
+      autoUpdate = false;
+      upgrade = false;
 
       extraEnv = {
         HOMEBREW_NO_ANALYTICS = "1";
@@ -20,7 +21,9 @@
       };
     };
 
-    brews = [ ];
+    brews = [
+      "go"
+    ];
 
     casks = [
       "bitwarden"
@@ -34,6 +37,10 @@
       "spotify"
       "telegram-desktop"
       "todoist-app"
+    ];
+
+    goPackages = [
+      "github.com/savely-krasovsky/ssh-sk-rk-patcher"
     ];
   };
 }
