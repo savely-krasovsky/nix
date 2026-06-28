@@ -25,6 +25,8 @@
       "telegram-desktop"
       "todoist-app"
       "fastmail"
+      "prusaslicer"
+      "spotify"
       "codex-app"
     ];
   };

@@ -18,7 +18,7 @@
     home-manager,
     ...
   }: {
-    darwinConfigurations."MacBook-Pro-Savely" =
+    darwinConfigurations.savely-macbook =
       nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/macbook
