@@ -3,6 +3,10 @@
 {
   system.primaryUser = "savely";
 
+  environment.pathsToLink = [
+    "/share/zsh"
+  ];
+
   networking = {
     hostName = "savely-macbook.local";
     computerName = "MacBook Pro — Savely";
