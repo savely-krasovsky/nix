@@ -18,16 +18,16 @@
     brews = [ ];
 
     casks = [
-      "ghostty"
-      "brave-origin"
       "bitwarden"
-      "jetbrains-toolbox"
-      "telegram-desktop"
-      "todoist-app"
+      "brave-origin"
+      "codex-app"
       "fastmail"
+      "ghostty"
+      "jetbrains-toolbox"
       "prusaslicer"
       "spotify"
-      "codex-app"
+      "telegram-desktop"
+      "todoist-app"
     ];
   };
 }
