@@ -33,15 +33,17 @@
       "fastmail"
       "ghostty"
       "jetbrains-toolbox"
+      "parallels"
       "prusaslicer"
+      "reqable"
       "spotify"
       "telegram-desktop"
       "todoist-app"
-      "virtualbuddy"
     ];
 
     goPackages = [
       "github.com/savely-krasovsky/ssh-sk-rk-patcher"
+      "github.com/wailsapp/wails/v3/cmd/wails3"
     ];
   };
 }
