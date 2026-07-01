@@ -18,7 +18,7 @@
     go
     k9s
     kubectl
-    nodejs_24
+    nodejs_22
     pnpm
   ];
 }

@@ -34,6 +34,7 @@
       "ghostty"
       "jetbrains-toolbox"
       "parallels"
+      "podman-desktop"
       "prusaslicer"
       "reqable"
       "spotify"
