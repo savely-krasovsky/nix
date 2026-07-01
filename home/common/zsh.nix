@@ -9,7 +9,6 @@
     syntaxHighlighting.enable = true;
 
     initContent = ''
-      zmodload zsh/complist
       zstyle ':completion:*' menu select
 
       bindkey "''${terminfo[kdch1]}" delete-char

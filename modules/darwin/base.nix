@@ -11,6 +11,10 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  environment.systemPath = [
+    "/opt/podman/bin"
+  ];
+
   users.users.savely = {
     name = "savely";
     home = "/Users/savely";
