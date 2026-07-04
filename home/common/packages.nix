@@ -20,5 +20,6 @@
     kubectl
     nodejs_22
     pnpm
+    yubikey-manager
   ];
 }
