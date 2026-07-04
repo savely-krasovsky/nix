@@ -28,6 +28,7 @@
       "bitwarden"
       "brave-origin"
       "codex-app"
+      "coteditor"
       "element"
       "fastmail"
       "ghostty"
@@ -39,6 +40,7 @@
       "spotify"
       "telegram-desktop"
       "todoist-app"
+      "yubico-authenticator"
     ];
 
     goPackages = [
