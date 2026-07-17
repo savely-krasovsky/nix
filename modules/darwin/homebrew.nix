@@ -33,6 +33,7 @@
       "fastmail"
       "ghostty"
       "jetbrains-toolbox"
+      "moonlight"
       "parallels"
       "plex"
       "podman-desktop"
