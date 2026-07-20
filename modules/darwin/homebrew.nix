@@ -29,6 +29,7 @@
       "brave-origin"
       "chatgpt"
       "coteditor"
+      "discord"
       "element"
       "fastmail"
       "ghostty"

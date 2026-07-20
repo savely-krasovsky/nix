@@ -6,11 +6,13 @@
     eza
     fd
     fzf
+    gh
     git
     jq
     nano
     ripgrep
     starship
+    tokei
     tree
     zsh-completions
 
