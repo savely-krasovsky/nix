@@ -10,7 +10,7 @@
         email = "savely@krasovs.ky";
         signingKey =
           if pkgs.stdenv.isDarwin
-          then "REPLACE_WITH_MACOS_SIGNING_KEY_ID"
+          then "6392013f718746669486678e566a47d93c355c84"
           else "DCC7F1A30F740DD9ED4589E0A714ECC57A561481";
       };
 
