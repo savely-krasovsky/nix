@@ -15,7 +15,15 @@
         fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
       fi
 
-      autoload -U compinit && compinit
+      autoload -Uz compinit
+
+      if [[ -n "''${CONTAINER_ID:-}" ]]; then
+        # Distrobox mounts /nix read-only, but its ownership can look insecure
+        # from inside the rootless container due to user namespace mapping.
+        compinit -u
+      else
+        compinit
+      fi
     '';
 
     initContent = ''
