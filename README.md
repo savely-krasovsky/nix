@@ -1,54 +1,73 @@
 # System Configuration
 
-Reusable Nix configuration for managing system and user environments with flakes.
+Personal Nix flake for two independent machines:
 
-The repository currently contains a `nix-darwin` host configuration and shared
-Home Manager modules. Common user-level modules are kept separate so they can be
-reused by other machines later, including Linux-based systems.
+- `savely-macbook` — a complete macOS system configuration built with
+  nix-darwin and Home Manager.
+- `savely-kinoite` — a standalone Home Manager configuration for Fedora
+  Kinoite.
+
+Neither configuration imports the other. They share only the reusable
+user-level modules under `home/common/`.
+
+## Configurations
+
+| Flake output | Machine | Scope |
+| --- | --- | --- |
+| `darwinConfigurations.savely-macbook` | MacBook / macOS | nix-darwin system, Homebrew, and Home Manager |
+| `homeConfigurations.savely-kinoite` | Fedora Kinoite | Home Manager user environment only |
 
 ## Structure
 
-- `flake.nix` - flake entry point and host outputs.
-- `hosts/` - machine-specific system configurations.
-- `modules/` - system-level modules grouped by platform.
-- `home/` - Home Manager user configurations.
+- `flake.nix` - flake entry point and both machine outputs.
+- `hosts/macbook/` - entry point for the MacBook system configuration.
+- `modules/darwin/` - macOS system packages, Nix settings, and Homebrew.
+- `home/savely/` - shared user profile and common-module wiring.
 - `home/common/` - shared Home Manager modules for shell, git, ssh, fzf,
   starship, and user packages.
-- `home/kinoite/` - Kinoite-only Home Manager modules for applications,
-  fonts, and desktop configuration.
+- `home/kinoite/` - Kinoite-only applications, GPG/PIV, fonts, Konsole, and
+  desktop configuration.
 
-## Usage
+## MacBook
 
-Apply the current Darwin host configuration:
+The MacBook output manages the macOS system through nix-darwin, embeds the
+shared Home Manager profile, and manages graphical applications through
+Homebrew.
+
+Apply it:
 
 ```sh
 darwin-rebuild switch --flake .#savely-macbook
 ```
 
-Build it without applying changes:
+Build without applying:
 
 ```sh
 darwin-rebuild build --flake .#savely-macbook
 ```
 
-### Fedora Kinoite
+## Fedora Kinoite
 
-Run the commands from the repository root. For the first activation, when
-`home-manager` is not available yet, use:
+Kinoite is a separate standalone Home Manager output. It does not use or
+evaluate the MacBook host and Darwin modules. Fedora continues to manage the
+immutable base operating system; Home Manager manages the user environment,
+fonts, terminal configuration, and selected applications. Development
+environments and native project dependencies live in Distrobox.
+
+For the first activation, when `home-manager` is not installed:
 
 ```sh
 nix run github:nix-community/home-manager -- switch --flake .#savely-kinoite
 ```
 
-The configuration enables the `home-manager` command. Apply later changes with:
+The first activation installs the `home-manager` command. Apply subsequent
+changes with:
 
 ```sh
 home-manager switch --flake .#savely-kinoite
 ```
 
-This installs the shared user packages and Kinoite-specific configuration
-without adding it to the macOS configuration. Project environments and native
-build dependencies are managed separately with Distrobox.
+## Maintenance
 
 Update flake inputs:
 
