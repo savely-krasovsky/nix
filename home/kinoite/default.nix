@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./fonts.nix
+  ];
+
   xdg.configFile."distrobox/distrobox.conf".text = ''
     container_additional_volumes="/nix:/nix:ro"
   '';
