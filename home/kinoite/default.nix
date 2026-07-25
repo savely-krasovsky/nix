@@ -3,6 +3,7 @@
 {
   imports = [
     ./fonts.nix
+    ./gpg.nix
     ./konsole.nix
   ];
 

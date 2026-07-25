@@ -1,7 +1,14 @@
+{ ... }:
+
 {
   programs.gpg = {
     enable = true;
-    scdaemonSettings.disable-ccid = true;
+
+    scdaemonSettings = {
+      application-priority = "piv";
+      disable-ccid = true;
+      pcsc-shared = true;
+    };
   };
 
   services.gpg-agent = {

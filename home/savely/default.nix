@@ -4,7 +4,6 @@
   imports = [
     ../common/zsh.nix
     ../common/git.nix
-    ../common/gpg.nix
     ../common/ssh.nix
     ../common/fzf.nix
     ../common/starship.nix
