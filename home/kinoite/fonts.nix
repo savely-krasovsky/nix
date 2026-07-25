@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     inter
+    nerd-fonts.jetbrains-mono
     noto-fonts
     noto-fonts-color-emoji
   ];
@@ -19,6 +20,7 @@
         "Noto Serif"
       ];
       monospace = [
+        "JetBrainsMono Nerd Font"
         "Noto Sans Mono"
       ];
       emoji = [
