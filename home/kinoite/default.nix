@@ -3,6 +3,7 @@
 {
   imports = [
     ./fonts.nix
+    ./konsole.nix
   ];
 
   xdg.configFile."distrobox/distrobox.conf".text = ''
