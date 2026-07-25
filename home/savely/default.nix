@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -15,10 +15,6 @@
     if pkgs.stdenv.isDarwin
     then "/Users/savely"
     else "/home/savely";
-
-  home.sessionVariables.GOPATH = "${config.home.homeDirectory}/go";
-  home.sessionVariables.GOBIN = "${config.home.sessionVariables.GOPATH}/bin";
-  home.sessionPath = [ config.home.sessionVariables.GOBIN ];
 
   home.stateVersion = "26.05";
 

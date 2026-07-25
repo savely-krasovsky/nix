@@ -22,7 +22,6 @@
     zsh-completions
 
     codex
-    go
     k9s
     kubectl
     nodejs_22
