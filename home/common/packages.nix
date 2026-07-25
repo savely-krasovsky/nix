@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/go/bin"
+  ];
+
   home.packages = with pkgs; [
     bat
     eza
