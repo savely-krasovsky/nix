@@ -16,6 +16,10 @@
     then "/Users/savely"
     else "/home/savely";
 
+  home.sessionVariables.GOPATH = "${config.home.homeDirectory}/go";
+  home.sessionVariables.GOBIN = "${config.home.sessionVariables.GOPATH}/bin";
+  home.sessionPath = [ config.home.sessionVariables.GOBIN ];
+
   home.stateVersion = "26.05";
 
   xdg.configFile."nano/nanorc".text = ''

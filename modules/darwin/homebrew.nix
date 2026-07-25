@@ -43,6 +43,7 @@
       "spotify"
       "telegram-desktop"
       "todoist-app"
+      "vectorstyler"
       "yubico-authenticator"
     ];
 
