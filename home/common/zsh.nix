@@ -29,6 +29,14 @@
 
       bindkey "''${terminfo[kdch1]}" delete-char
       bindkey "^[[3~" delete-char
+
+      # Word navigation in common Linux and macOS terminal emulators.
+      bindkey $'\e[1;5D' backward-word
+      bindkey $'\e[1;5C' forward-word
+      bindkey $'\e[1;3D' backward-word
+      bindkey $'\e[1;3C' forward-word
+      bindkey $'\eb' backward-word
+      bindkey $'\ef' forward-word
     '';
 
     shellAliases = {
