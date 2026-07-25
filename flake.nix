@@ -9,9 +9,6 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixgl.url = "github:nix-community/nixGL";
-    nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{
@@ -53,10 +50,5 @@
           ./home/kinoite
         ];
       };
-
-    devShells.x86_64-linux = import ./devshells {
-      inherit inputs;
-      system = "x86_64-linux";
-    };
   };
 }

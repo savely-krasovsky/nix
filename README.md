@@ -9,15 +9,13 @@ reused by other machines later, including Linux-based systems.
 ## Structure
 
 - `flake.nix` - flake entry point and host outputs.
-- `devshells/` - project development environments and their build
-  dependencies.
 - `hosts/` - machine-specific system configurations.
 - `modules/` - system-level modules grouped by platform.
 - `home/` - Home Manager user configurations.
 - `home/common/` - shared Home Manager modules for shell, git, ssh, fzf,
   starship, and user packages.
-- `home/kinoite/` - Kinoite-only Home Manager modules, including the C
-  development toolchain.
+- `home/kinoite/` - Kinoite-only Home Manager modules for applications,
+  fonts, and desktop configuration.
 
 ## Usage
 
@@ -48,24 +46,9 @@ The configuration enables the `home-manager` command. Apply later changes with:
 home-manager switch --flake .#savely-kinoite
 ```
 
-This installs the shared user packages and the Kinoite-only C development
-toolchain without adding it to the macOS configuration.
-
-Build Wails 3 from a Wails repository using the development environment from
-this flake:
-
-```sh
-nix develop /path/to/this/repository#wails3 -c go install ./v3/cmd/wails3/
-```
-
-The development environment provides GTK4, WebKitGTK 6.0, and all of their
-transitive `pkg-config` dependencies.
-
-Run a Wails application with access to the host GPU drivers:
-
-```sh
-nixGLIntel ./bin/application
-```
+This installs the shared user packages and Kinoite-specific configuration
+without adding it to the macOS configuration. Project environments and native
+build dependencies are managed separately with Distrobox.
 
 Update flake inputs:
 
