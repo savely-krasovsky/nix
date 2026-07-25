@@ -3,9 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     darwin.url = "github:nix-darwin/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{
@@ -32,6 +35,19 @@
         specialArgs = {
           inherit self inputs;
         };
+      };
+
+    homeConfigurations.savely-kinoite =
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+        extraSpecialArgs = {
+          inherit self inputs;
+        };
+
+        modules = [
+          ./home/savely
+        ];
       };
   };
 }
