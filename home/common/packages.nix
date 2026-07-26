@@ -21,6 +21,7 @@
     tree
     zsh-completions
 
+    beads
     codex
     k9s
     kubectl
