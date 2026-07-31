@@ -28,6 +28,7 @@
       "bitwarden"
       "brave-origin"
       "chatgpt"
+      "coderabbit"
       "coteditor"
       "discord"
       "element"
