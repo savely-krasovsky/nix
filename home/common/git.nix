@@ -25,10 +25,21 @@
       commit.gpgSign = true;
       tag.gpgSign = true;
 
+      fetch.prune = true;
       init.defaultBranch = "master";
+      diff.algorithm = "histogram";
+      merge.conflictStyle = "zdiff3";
       pull.rebase = true;
+      push.default = "current";
       push.autoSetupRemote = true;
+      rebase.autoStash = true;
+      rerere.enabled = true;
       core.editor = "nano";
     };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 }

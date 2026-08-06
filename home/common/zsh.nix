@@ -45,7 +45,11 @@
       ll  = "eza -l --icons=always";
       la  = "eza -la --icons=always";
       cat = "bat --plain";
+      df = "duf";
+      dig = "doggo";
+      du = "dust";
       grep = "grep --color=auto";
+      http = "xh";
     };
   };
 }

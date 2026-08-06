@@ -8,6 +8,11 @@
 
   home.packages = with pkgs; [
     bat
+    bottom
+    dive
+    doggo
+    duf
+    dust
     eza
     fd
     fzf
@@ -19,6 +24,7 @@
     starship
     tokei
     tree
+    xh
     zsh-completions
 
     beads
