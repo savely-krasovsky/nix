@@ -1,72 +1,97 @@
-# System Configuration
+# Nix configuration
 
-Personal Nix flake for two independent machines:
+Personal Nix flake for two machines:
 
-- `savely-macbook` — a complete macOS system configuration built with
-  nix-darwin and Home Manager.
-- `savely-ubuntu` — a standalone Home Manager configuration for an Ubuntu
+- `savely-macbook` — macOS system configuration managed with nix-darwin,
+  Home Manager, and Homebrew;
+- `savely-ubuntu` — standalone Home Manager configuration for an Ubuntu
   workstation.
 
-Neither configuration imports the other. They share only the reusable
-user-level modules under `home/common/`.
+The machines share the user environment under `home/common/`. macOS system
+settings and applications are independent from the Ubuntu-specific modules.
 
-## Configurations
+## What is managed
 
-| Flake output | Machine | Scope |
-| --- | --- | --- |
-| `darwinConfigurations.savely-macbook` | MacBook / macOS | nix-darwin system, Homebrew, and Home Manager |
-| `homeConfigurations.savely-ubuntu` | Ubuntu workstation | Home Manager user environment only |
+The shared Home Manager profile provides:
 
-## Structure
+- Zsh with completion, autosuggestions, syntax highlighting, aliases, and
+  cross-platform key bindings;
+- Git with signed commits and tags, Delta, rebase-oriented defaults, and a
+  platform-specific personal signing identity;
+- SSH hosts and FIDO2-backed identities;
+- Starship and fzf shell integration;
+- common CLI and development tools, including Go and Node tooling, Kubernetes
+  clients, GitHub CLI, YubiKey Manager, and modern replacements for common Unix
+  commands.
 
-- `flake.nix` - flake entry point and both machine outputs.
-- `hosts/macbook/` - entry point for the MacBook system configuration.
-- `modules/darwin/` - macOS system packages, Nix settings, and Homebrew.
-- `home/savely/` - shared user profile and common-module wiring.
-- `home/common/` - shared Home Manager modules for shell, git, ssh, fzf,
-  starship, and user packages.
-- `home/ubuntu/` - Ubuntu-only GPG/PIV, fonts, Konsole, and desktop
-  configuration.
+The Ubuntu profile additionally provides:
 
-## MacBook
+- a separate Git identity and OpenPGP signing key for repositories under
+  `~/Projects/work/`;
+- a GPG trustlist entry used with the local smart-card setup;
+- physical-key Ghostty shortcuts that work independently of the active keyboard
+  layout;
+- Go and the multi-user Nix environment setup for Zsh.
 
-The MacBook output manages the macOS system through nix-darwin, embeds the
-shared Home Manager profile, and manages graphical applications through
-Homebrew.
+The macOS configuration additionally manages:
 
-Apply it:
+- the host name, primary user, and Touch ID authentication for `sudo`;
+- Nix flakes, automatic store optimisation, and garbage collection;
+- OpenSSH with FIDO2 support, OpenSSL, libfido2, and S/MIME signing tools;
+- GUI applications, Go, and selected Go tools through Homebrew;
+- `/opt/podman/bin` and Homebrew paths and shell completions.
 
-```sh
-darwin-rebuild switch --flake .#savely-macbook
+## Repository layout
+
+```text
+flake.nix                 Flake inputs and machine outputs
+hosts/macbook/            MacBook entry point
+modules/darwin/           macOS system, Nix, packages, and Homebrew modules
+home/savely/              Shared user-profile entry point
+home/common/              Cross-platform Home Manager modules
+home/ubuntu/              Ubuntu-specific Home Manager modules
 ```
 
-Build without applying:
+## Apply the configuration
 
-```sh
-darwin-rebuild build --flake .#savely-macbook
-```
+### Ubuntu
 
-## Ubuntu Workstation
-
-The Ubuntu output is a standalone Home Manager configuration. It does not use
-or evaluate the MacBook host and Darwin modules. Home Manager manages the user
-environment, fonts, terminal configuration, and selected applications.
-
-For the first activation:
+Bootstrap or apply with Home Manager directly from the flake:
 
 ```sh
 nix run github:nix-community/home-manager -- switch --flake .#savely-ubuntu
 ```
 
-Apply subsequent changes with:
+Once `home-manager` is available in the user profile, subsequent activations
+can use:
 
 ```sh
 home-manager switch --flake .#savely-ubuntu
 ```
 
+### macOS
+
+Apply the complete nix-darwin configuration:
+
+```sh
+darwin-rebuild switch --flake .#savely-macbook
+```
+
+Build it without activating:
+
+```sh
+darwin-rebuild build --flake .#savely-macbook
+```
+
 ## Maintenance
 
-Update flake inputs:
+Check that all flake outputs evaluate:
+
+```sh
+nix flake check --no-build
+```
+
+Update pinned inputs:
 
 ```sh
 nix flake update
