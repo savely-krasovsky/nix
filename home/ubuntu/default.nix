@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -14,4 +14,8 @@
       source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     fi
   '';
+
+  home.packages = with pkgs; [
+    go
+  ];
 }

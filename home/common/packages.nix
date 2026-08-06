@@ -22,6 +22,7 @@
     zsh-completions
 
     beads
+    golangci-lint
     k9s
     kubectl
     nodejs_24
