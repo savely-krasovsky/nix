@@ -19,7 +19,7 @@
         x509.program =
           if pkgs.stdenv.isDarwin
           then "${pkgs.smimesign}/bin/smimesign"
-          else "${pkgs.gnupg}/bin/gpgsm";
+          else "/usr/bin/gpgsm";
       };
 
       commit.gpgSign = true;

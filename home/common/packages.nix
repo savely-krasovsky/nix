@@ -22,10 +22,9 @@
     zsh-completions
 
     beads
-    codex
     k9s
     kubectl
-    nodejs_22
+    nodejs_24
     pnpm
     yubikey-manager
   ];

@@ -4,8 +4,8 @@ Personal Nix flake for two independent machines:
 
 - `savely-macbook` — a complete macOS system configuration built with
   nix-darwin and Home Manager.
-- `savely-kinoite` — a standalone Home Manager configuration for Fedora
-  Kinoite.
+- `savely-ubuntu` — a standalone Home Manager configuration for an Ubuntu
+  workstation.
 
 Neither configuration imports the other. They share only the reusable
 user-level modules under `home/common/`.
@@ -15,7 +15,7 @@ user-level modules under `home/common/`.
 | Flake output | Machine | Scope |
 | --- | --- | --- |
 | `darwinConfigurations.savely-macbook` | MacBook / macOS | nix-darwin system, Homebrew, and Home Manager |
-| `homeConfigurations.savely-kinoite` | Fedora Kinoite | Home Manager user environment only |
+| `homeConfigurations.savely-ubuntu` | Ubuntu workstation | Home Manager user environment only |
 
 ## Structure
 
@@ -25,8 +25,8 @@ user-level modules under `home/common/`.
 - `home/savely/` - shared user profile and common-module wiring.
 - `home/common/` - shared Home Manager modules for shell, git, ssh, fzf,
   starship, and user packages.
-- `home/kinoite/` - Kinoite-only applications, GPG/PIV, fonts, Konsole, and
-  desktop configuration.
+- `home/ubuntu/` - Ubuntu-only GPG/PIV, fonts, Konsole, and desktop
+  configuration.
 
 ## MacBook
 
@@ -46,25 +46,22 @@ Build without applying:
 darwin-rebuild build --flake .#savely-macbook
 ```
 
-## Fedora Kinoite
+## Ubuntu Workstation
 
-Kinoite is a separate standalone Home Manager output. It does not use or
-evaluate the MacBook host and Darwin modules. Fedora continues to manage the
-immutable base operating system; Home Manager manages the user environment,
-fonts, terminal configuration, and selected applications. Development
-environments and native project dependencies live in Distrobox.
+The Ubuntu output is a standalone Home Manager configuration. It does not use
+or evaluate the MacBook host and Darwin modules. Home Manager manages the user
+environment, fonts, terminal configuration, and selected applications.
 
-For the first activation, when `home-manager` is not installed:
+For the first activation:
 
 ```sh
-nix run github:nix-community/home-manager -- switch --flake .#savely-kinoite
+nix run github:nix-community/home-manager -- switch --flake .#savely-ubuntu
 ```
 
-The first activation installs the `home-manager` command. Apply subsequent
-changes with:
+Apply subsequent changes with:
 
 ```sh
-home-manager switch --flake .#savely-kinoite
+home-manager switch --flake .#savely-ubuntu
 ```
 
 ## Maintenance
