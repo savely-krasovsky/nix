@@ -11,7 +11,7 @@
         signingKey =
           if pkgs.stdenv.isDarwin
           then "6392013f718746669486678e566a47d93c355c84"
-          else "DCC7F1A30F740DD9ED4589E0A714ECC57A561481";
+          else "B44342FAF49F57B1A152D7690CD8CA6579E16ABB";
       };
 
       gpg = {

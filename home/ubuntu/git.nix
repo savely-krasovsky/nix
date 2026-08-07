@@ -3,7 +3,7 @@
 {
   programs.git.includes = [
     {
-      condition = "gitdir:~/Projects/work/";
+      condition = "gitdir:~/Work/";
       contents = {
         user = {
           name = "Savely Krasovsky";
