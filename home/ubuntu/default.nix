@@ -20,6 +20,10 @@
     fi
   '';
 
+  home.sessionPath = [
+    "$HOME/.o3-cli/bin"
+  ];
+
   home.packages = with pkgs; [
     go
   ];

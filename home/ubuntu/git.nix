@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  programs.git.settings.url."git@gitlab.ozon.ru:".insteadOf =
+    "https://gitlab.ozon.ru/";
+
   programs.git.includes = [
     {
       condition = "gitdir:~/Work/";

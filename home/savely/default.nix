@@ -18,6 +18,12 @@
 
   home.stateVersion = "26.05";
 
+  home.file."Work/.envrc".text = ''
+    export GOPRIVATE=gitlab.ozon.ru
+    export GOPROXY=https://goproxy.s.o3.ru
+    export GOSUMDB=off
+  '';
+
   xdg.configFile."nano/nanorc".text = ''
     set autoindent
     set linenumbers
