@@ -18,6 +18,10 @@
     if [[ -e /etc/profile.d/flatpak.sh ]]; then
       source /etc/profile.d/flatpak.sh
     fi
+
+    if [[ -e /etc/profile.d/apps-bin-path.sh ]]; then
+      source /etc/profile.d/apps-bin-path.sh
+    fi
   '';
 
   home.sessionPath = [
