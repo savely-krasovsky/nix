@@ -12,7 +12,7 @@
 
   home.username = "savely";
   home.homeDirectory =
-    if pkgs.stdenv.isDarwin
+    if pkgs.stdenv.hostPlatform.isDarwin
     then "/Users/savely"
     else "/home/savely";
 

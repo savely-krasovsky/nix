@@ -9,7 +9,7 @@
         name = "Savely Krasovsky";
         email = "savely@krasovs.ky";
         signingKey =
-          if pkgs.stdenv.isDarwin
+          if pkgs.stdenv.hostPlatform.isDarwin
           then "6392013f718746669486678e566a47d93c355c84"
           else "B44342FAF49F57B1A152D7690CD8CA6579E16ABB";
       };
@@ -17,7 +17,7 @@
       gpg = {
         format = "x509";
         x509.program =
-          if pkgs.stdenv.isDarwin
+          if pkgs.stdenv.hostPlatform.isDarwin
           then "${pkgs.smimesign}/bin/smimesign"
           else "/usr/bin/gpgsm";
       };
