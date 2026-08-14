@@ -55,6 +55,8 @@
       du = "dust";
       grep = "grep --color=auto";
       http = "xh";
+      gpg-openpgp = "gpgconf --kill scdaemon && gpg-connect-agent 'scd serialno openpgp' /bye && gpg --card-status";
+      gpg-piv = "gpgconf --kill scdaemon && gpg-connect-agent 'scd serialno piv' /bye && gpg --card-status";
     };
   };
 }

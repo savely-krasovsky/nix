@@ -27,12 +27,14 @@
     xh
     zsh-completions
 
+    awscli
     beads
     golangci-lint
     k9s
     kubectl
     nodejs_24
     pnpm
+    pgcli
     yubikey-manager
   ];
 }
