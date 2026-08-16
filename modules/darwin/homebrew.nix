@@ -36,6 +36,7 @@
       "ghostty"
       "jetbrains-toolbox"
       "moonlight"
+      "mullvad-vpn"
       "parallels"
       "plex"
       "podman-desktop"
