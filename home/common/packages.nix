@@ -18,6 +18,7 @@
     fzf
     gh
     git
+    grpcurl
     jq
     nano
     ripgrep
@@ -35,6 +36,7 @@
     nodejs_24
     pnpm
     pgcli
+    uv
     yubikey-manager
   ];
 }
